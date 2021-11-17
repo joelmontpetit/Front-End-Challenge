@@ -105,6 +105,7 @@ function populateDoggoBreedSelect() {
 }
 
 function fillSelectElem(selectElem, dataToFill) {
+  dataToFill.sort();
   dataToFill.forEach((element) => {
     var optionElem = document.createElement("option");
     optionElem.innerHTML = element;
