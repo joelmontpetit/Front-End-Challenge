@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+/* Color variables */
+:root {
+  --dark-grey: #888;
+  --green: #2ecc71;
+  --grey: #f7f7f7;
+  --light-grey: #f0f0f0;
+  --orange: #f37335;
+  --red: #e74c3c;
+  --white: #ffffff;
+}
+
+/* Main body */
+
+body {
+  margin: 0rem;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--orange);
+}
+
+/* Success and failure modals */
+
+.modal {
+  display: none;
+  position: fixed;
+  height: 100%;
+}
+
+.modal__content {
+  background-color: var(--light-grey);
+  opacity: 3;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 800px;
+  height: 100px;
+  
+  flex-direction: row-reverse;
+  margin-top: 100px;
+  margin-left: 25px;
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.modal__content p {
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+  margin-left: 145px;
+  font-weight: bold;
+}
+
+.openModal:after {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  content: '';
+}
+
+
+.modal__close {
+  color: var(--dark-grey);
+  display: flex;
+  justify-content: end;
+  padding-left: 15px;
+  padding-top: 10px; 
+  margin-left: 200px;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Main page content */
+
+.main {
+  display: flex;
+  align-items: center;
+  max-width: 95rem;
+}
+
+.container {
+  background-color: white;
+  border-radius: .375rem;
+  box-shadow: 0 .125rem .375rem rgba(0, 0, 0, 0.3);
+  min-width: 19rem;
+  width: 100%;
+  overflow: hidden;
+  margin: 1.5rem;
+}
+
+.column {
+  flex: 40%;
+}
+
+.row {
+  display: flex;
+}
+
+/* Doggo pictures grid */
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1.5rem;
+  gap: .5rem;
+}
+
+.photos img {
+  display: block;
+  flex-basis: 100%;
+  border-radius: 0.5rem;
+  border: .125rem solid var(--light-grey);
+  max-width: calc(33% - 1rem);
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 950px) {
+  .photos img {
+    max-width: calc(33% - 1rem);
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .photos img {
+    max-width: calc(50% - 1rem);
+  }
+  .disappear{
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .photos img {
+    display: none !important;
+  }
+  
+}
+
+
+
+/* Create your profile form */
+
+.header {
+  background-color: #f7f7f7;
+  border-bottom: .125rem solid #f0f0f0;
+  padding: 1.25rem 2.5rem;
+  text-align: center;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.form {
+  padding: 1.875rem 2.5rem;
+  
+}
+
+.form__control {
+  margin-bottom: 0.625rem;
+  padding-bottom: 1.25rem;
+  position: relative;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media only screen and (max-width: 770px) {
+  .row {
+    display: block;
+  }
+  .container {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;  
+  }  
+  #col-photos {
+    display: none;
+  }
+
+  .main{
+    display: block;
+  }
+
+}
+
+.form__control label {
+  display: inline-block;
+  margin-bottom: 0.375rem;
+}
+
+.form__control input,
+.form__control select
+{
+  border: 0.125rem solid var(--light-grey);
+  border-radius: .25rem;
+  display: block;
+  font-family: inherit;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 0.625rem;
+  outline-color: var(--orange);
+}
+
+.form__control.success input,
+.form__control.success select
+{
+  border-color: var(--green);
+}
+
+.form__control.error input,
+.form__control.error select
+{
+  border-color: var(--red);
+}
+
+.form__control i {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(100% + 0.125rem);
+}
+
+.form__control-input {
+  position: relative;
+}
+
+.form__control.success i.fa-check-circle {
+  visibility: visible;
+  color: var(--green);
+}
+
+.form__control.error i.fa-exclamation-circle {
+  visibility: visible;
+  color: var(--red);
+}
+
+.form__control small {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+}
+
+.form__control.error small {
+  color: var(--red);
+  visibility: visible;
+}
+
+.form button {
+  background-color: var(--orange);
+  border: .125rem solid var(--orange);
+  border-radius: .25rem;
+  color: var(--light-grey);
+  width: 100%;
+  padding: .625rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  position: relative;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.form button:after {
+  content: "";
+  background: var(--light-grey);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -1.25rem!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.form button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
